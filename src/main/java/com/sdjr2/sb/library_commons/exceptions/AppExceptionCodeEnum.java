@@ -2,6 +2,8 @@ package com.sdjr2.sb.library_commons.exceptions;
 
 import org.springframework.http.HttpStatus;
 
+import lombok.Getter;
+
 /**
  * {@link AppExceptionCodeEnum} class.
  * <p>
@@ -10,9 +12,10 @@ import org.springframework.http.HttpStatus;
  * @author Jacinto R^2
  * @version 1.0
  * @category Exception
- * @upgrade 24/08/10
+ * @upgrade 24/08/17
  * @since 24/06/14
  */
+@Getter
 public enum AppExceptionCodeEnum {
 
 	STATUS_40000( HttpStatus.BAD_REQUEST, 40000, "Bad Request" ),
@@ -46,18 +49,6 @@ public enum AppExceptionCodeEnum {
 		this.httpStatusCode = httpStatusCode;
 		this.appStatusCode = appStatusCode;
 		this.message = message;
-	}
-
-	public HttpStatus getHttpStatusCode () {
-		return this.httpStatusCode;
-	}
-
-	public Integer getAppStatusCode () {
-		return this.appStatusCode;
-	}
-
-	public String getMessage () {
-		return this.message;
 	}
 
 	public static AppExceptionCodeEnum getByAppStatusCode ( Integer appStatusCode ) {
